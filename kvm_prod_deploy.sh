@@ -4,7 +4,6 @@ script_path="$HOME/scripts/kvm"
 . ${script_path}/.env # source env vars for:
 #  $prod_server_ip $prod_server_port $prod_server_user prod_template_vm_name $prod_prod_template_vm_ip $prod_prod_template_vm_port
 log_file="${script_path}"/log_file_prod.log
-echo ${prod_server_user} ${prod_server_ip} ${prod_server_port}
 kvm_remote=" --connect qemu+ssh://${prod_server_user}@${prod_server_ip}:${prod_server_port}/system"
 kvm_prod_server="-o StrictHostKeyChecking=no ${prod_server_user}@${prod_server_ip} -p ${prod_server_port}"
 
@@ -31,7 +30,7 @@ if [[ -n "$2" ]]
     project_name="${dirs[$((selection-1))]}" && \
     echo "You selected '$project_name'" 
 fi
-[[ $project_name == *other* ]] && echo $project_name && \
+[[ $project_name == *other* ]] && \
   read -p $'\e[96mPlease, enter Project Name: \e[0m' project_name
 [[ -z ${project_name} ]] && { echo -e "\e[31mPlease, start over and set the Project Name\e[0m" ; exit 1 ; }
 
