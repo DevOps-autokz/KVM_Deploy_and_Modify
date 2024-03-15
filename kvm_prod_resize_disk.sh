@@ -24,7 +24,7 @@ vm_name="${vms[$((selection-1))]}"
 echo "You selected '$vm_name'"
 
 # Set full path to VM file to variable:
-vm_path=$(ssh -o StrictHostKeyChecking=no $prod_server_user@$prod_server_ip -p $prod_server_port "sudo find /var/lib/libvirt/images -type f -name ${vm_name}*")
+vm_path=$(ssh -o StrictHostKeyChecking=no $prod_server_user@$prod_server_ip -p $prod_server_port "sudo find /var/lib/libvirt/images -type f -name ${vm_name}.qcow2")
 
 # Set Disk New Size, ask user to input it:
 [[ -n "$2" ]] && disk_new_size=$2 || read -p $'\e[96mPlease, enter new size of Disk in GB \e[0m:' disk_new_size
