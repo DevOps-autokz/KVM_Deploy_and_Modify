@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Set variables:
 script_path="$HOME/scripts/kvm"
-log_file="${script_path}"/log_stage_disk_resize.log
+log_file="${script_path}"/log_prod_disk_resize.log
 . ${script_path}/.env
 # prod_server_ip (should be sourced from .env file)
 # prod_server_user (should be sourced from .env file)

@@ -1,3 +1,5 @@
 .env
 *log
 *log*
+.env_hetzner
+qemu
